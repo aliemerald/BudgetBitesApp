@@ -259,7 +259,6 @@ fun Cardbehind(modifier: Modifier = Modifier, navcontroller: NavController){
         Column(
             modifier = modifier
                 .fillMaxWidth()
-            //horizontalAlignment = Alignment.CenterHorizontally//
         ) {
             Row(modifier = Modifier
                 .fillMaxWidth()

@@ -12,12 +12,14 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.dimensionResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.example.budgetbites.R
@@ -28,7 +30,7 @@ fun BottomBarNavigation(
     padding: PaddingValues,
     context: Activity
 ) {
-
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
     NavHost(
         navController = navController,
         startDestination = ScreenRoutes.Login.route,
@@ -40,7 +42,8 @@ fun BottomBarNavigation(
             },
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(dimensionResource(R.dimen.padding_medium)
+                    .padding(
+                        dimensionResource(R.dimen.padding_medium)
                     )
             )
         }

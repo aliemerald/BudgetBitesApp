@@ -15,6 +15,9 @@
  */
 package com.example.budgetbitesapp
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.AsyncTask
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -31,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import com.example.budgetbitesapp.ui.theme.BudgetBitesAppTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import com.example.budgetbites.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
