@@ -154,7 +154,7 @@ fun ReviewCheck2(Bite: Bite, navcontroller: NavController) {
             horizontalArrangement = Arrangement.spacedBy(80.dp)
         ){
             Column{
-                CancelButton(onClick = {navcontroller.navigate(ScreenRoutes.Review.route)})
+                CancelButton(onClick = {navcontroller.navigate(ScreenRoutes.WriteReview.route)})
             }
             Column{
                 SubmitButton2(onClick = {navcontroller.navigate(ScreenRoutes.Restaurant.route)})

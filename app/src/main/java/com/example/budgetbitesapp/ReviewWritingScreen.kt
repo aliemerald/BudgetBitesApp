@@ -169,7 +169,7 @@ fun ReviewCard2(Bite: Bite, navcontroller: NavController) {
                     .width(210.dp)
             ){}
             Column {
-                SubmitButton(onClick = { navcontroller.navigate(ScreenRoutes.Restaurant.route) })
+                SubmitButton(onClick = { navcontroller.navigate(ScreenRoutes.ReviewCheck.route) })
             }
         }
     }

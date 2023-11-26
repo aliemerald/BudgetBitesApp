@@ -49,7 +49,7 @@ fun BottomBarNavigation(
             startDestination = BottomBarRoutes.Home.routes
         ) {
             composable(BottomBarRoutes.Home.routes) {
-                HomeScreen()
+                HomeScreen(navController)
             }
             composable(BottomBarRoutes.Favourites.routes) {
                 FavouritesScreen(navController)
@@ -67,8 +67,11 @@ fun BottomBarNavigation(
         composable(ScreenRoutes.Restaurant.route) {
             RestaurantProfileScreen(navController)
         }
-        composable(ScreenRoutes.Review.route) {
+        composable(ScreenRoutes.WriteReview.route) {
             ReviewWritingScreen(navController)
+        }
+        composable(ScreenRoutes.ReviewCheck.route) {
+            ReviewCardChecker(navController)
         }
     }
 
@@ -77,7 +80,8 @@ sealed class ScreenRoutes(val route: String) {
     data object Login : ScreenRoutes("/login")
     data object BottomBar : ScreenRoutes("/bottombar")
     data object Restaurant : ScreenRoutes("/restaurantprofile")
-    data object Review : ScreenRoutes("/review")
+    data object WriteReview : ScreenRoutes("/reviewwriting")
+    data object ReviewCheck : ScreenRoutes("/reviewcardchecker")
 }
 
 enum class BottomBarRoutes(

@@ -32,10 +32,10 @@ import com.example.budgetbites.R
 
 @Composable
 fun FavouritesScreen(navcontroller: NavController) {
-    BiteList(navcontroller = navcontroller)
+    BiteColumn(navcontroller = navcontroller)
 }
 @Composable
-fun BiteCard(bite: Bite, navcontroller: NavController){
+fun BigBiteCard(bite: Bite, navcontroller: NavController){
     Card(modifier = Modifier
         .clickable {
             navcontroller.navigate(ScreenRoutes.Restaurant.route)
@@ -61,7 +61,7 @@ fun BiteCard(bite: Bite, navcontroller: NavController){
 }
 
 @Composable
-fun BiteList(modifier: Modifier = Modifier,navcontroller: NavController) {
+fun BiteColumn(modifier: Modifier = Modifier, navcontroller: NavController) {
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -87,20 +87,20 @@ fun BiteList(modifier: Modifier = Modifier,navcontroller: NavController) {
         )
         {
             Column(modifier = modifier) {
-                BiteCard(Bite(R.string.favourite1, R.drawable.starbucks),navcontroller)
-                BiteCard(Bite(R.string.favourite7, R.drawable.rotiking),navcontroller)
-                BiteCard(Bite(R.string.favourite10, R.drawable.wingwing),navcontroller)
-                BiteCard(Bite(R.string.favourite3, R.drawable.choppaluna),navcontroller)
-                BiteCard(Bite(R.string.favourite8, R.drawable.kingfalafel),navcontroller)
+                BigBiteCard(Bite(R.string.favourite1, R.drawable.starbucks),navcontroller)
+                BigBiteCard(Bite(R.string.favourite7, R.drawable.rotiking),navcontroller)
+                BigBiteCard(Bite(R.string.favourite10, R.drawable.wingwing),navcontroller)
+                BigBiteCard(Bite(R.string.favourite3, R.drawable.choppaluna),navcontroller)
+                BigBiteCard(Bite(R.string.favourite8, R.drawable.kingfalafel),navcontroller)
 
             }
             Column(modifier = modifier) {
 
-                BiteCard(Bite(R.string.favourite6, R.drawable.isolabella),navcontroller)
-                BiteCard(Bite(R.string.favourite9, R.drawable.cafe49),navcontroller)
-                BiteCard(Bite(R.string.favourite4, R.drawable.mastercuisine),navcontroller)
-                BiteCard(Bite(R.string.favourite2, R.drawable.costa), navcontroller)
-                BiteCard(Bite(R.string.favourite5, R.drawable.haretortoise),navcontroller)
+                BigBiteCard(Bite(R.string.favourite6, R.drawable.isolabella),navcontroller)
+                BigBiteCard(Bite(R.string.favourite9, R.drawable.cafe49),navcontroller)
+                BigBiteCard(Bite(R.string.favourite4, R.drawable.mastercuisine),navcontroller)
+                BigBiteCard(Bite(R.string.favourite2, R.drawable.costa), navcontroller)
+                BigBiteCard(Bite(R.string.favourite5, R.drawable.haretortoise),navcontroller)
             }
         }
     }

@@ -20,46 +20,65 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.budgetbites.R
 import com.example.budgetbitesapp.model.Bite
 
 @Composable
-fun HomeScreen(
-){
+fun HomeScreen(navcontroller: NavController){
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(
             dimensionResource(id = R.dimen.padding_medium)
         )
     ) {
-        Spacer(modifier = Modifier.height(50.dp))
+        Row{
+            Text(
+                modifier = Modifier.padding(10.dp),
+                text = "HOME",
+                fontFamily= FontFamily.Serif,
+                fontWeight = Bold,
+                textAlign = TextAlign.Center,
+                fontSize = 42.sp,
+                lineHeight = 30.sp
+            )
+        }
         Text(
             "Recent Bites",
             fontWeight=Bold,
             fontSize=20.sp,
             textAlign= TextAlign.Left,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(15.dp)
         )
-        BiteList()
+        BiteRow(navcontroller = navcontroller)
         Text(
             "Recommended Bites",
             fontWeight=Bold,
             fontSize=20.sp,
             textAlign= TextAlign.Left,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(15.dp)
         )
-        BiteList()
+        BiteRow(navcontroller = navcontroller)
+        Text(
+            "Recent Bites",
+            fontWeight=Bold,
+            fontSize=20.sp,
+            textAlign= TextAlign.Left,
+            modifier = Modifier.padding(15.dp)
+        )
+        BiteRow(navcontroller = navcontroller)
     }
 }
 
 @Composable
-fun BiteCard(bite: Bite){
+fun SmallBiteCard(bite: Bite, navcontroller: NavController){
     Card(modifier= Modifier
-        .clickable {}
+        .clickable {navcontroller.navigate(ScreenRoutes.Restaurant.route)}
         .width(120.dp)
         .padding(5.dp)){
         Column{
@@ -80,7 +99,7 @@ fun BiteCard(bite: Bite){
 }
 
 @Composable
-fun BiteList(modifier:Modifier=Modifier){
+fun BiteRow(modifier:Modifier=Modifier, navcontroller: NavController){
     Column(
         modifier= modifier
             .fillMaxWidth()
@@ -88,11 +107,11 @@ fun BiteList(modifier:Modifier=Modifier){
     ){
         Spacer(modifier=Modifier.height(8.dp))
         Row(modifier=modifier){
-            BiteCard(Bite(R.string.favourite1,R.drawable.starbucks))
-            BiteCard(Bite(R.string.favourite2,R.drawable.starbucks))
-            BiteCard(Bite(R.string.favourite1,R.drawable.starbucks))
-            BiteCard(Bite(R.string.favourite2,R.drawable.starbucks))
-            BiteCard(Bite(R.string.favourite1,R.drawable.starbucks))
+            SmallBiteCard(Bite(R.string.favourite1,R.drawable.starbucks), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite2,R.drawable.starbucks), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite1,R.drawable.starbucks), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite2,R.drawable.starbucks), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite1,R.drawable.starbucks), navcontroller)
         }
     }
 }

@@ -276,7 +276,7 @@ fun Cardbehind(modifier: Modifier = Modifier, navcontroller: NavController){
                     )
                 }
                 Column {
-                    AddReviewButton(onClick = { navcontroller.navigate(ScreenRoutes.Review.route) })
+                    AddReviewButton(onClick = { navcontroller.navigate(ScreenRoutes.WriteReview.route) })
                 }
             }
             Row{
