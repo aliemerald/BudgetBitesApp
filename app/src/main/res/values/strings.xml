@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Budget Bites</string>
+    <string name="screen_1">Login</string>
+    <string name="bbs_1">Home</string>
+    <string name="bbs_2">Favourites</string>
+    <string name="bbs_3">User Profile</string>
+    <string name="bbs_4">Map</string>
+    <string name="bbs_5">Search</string>
+    <string name="screen_2">Restaurant Profile</string>
+    <string name="screen_3">Review Writing</string>>
+
+    <string name="recent_bites">Recent Bites</string>
+    <string name="new_bites">New Bites</string>
+    <string name="recommended_bites">Recommended Bites</string>
+
+    <string name="back_button">Back</string>
+
+    <string name="favourite1">Starbucks</string>
+    <string name="favourite2">Costa</string>
+    <string name="favourite3">Choppaluna</string>
+    <string name="favourite4">Master Wei Xian Cuisine</string>
+    <string name="favourite5">Hare and Tortoise </string>
+    <string name="favourite6">x</string>
+    <string name="favourite7">x</string>
+    <string name="favourite10">x</string>
+    <string name="favourite8">The King of Falafel</string>
+    <string name="favourite9">49 Cafe</string>
+
+    <string name="review_name_1">Mary Smith</string>
+    <string name="review_name_2">Tyler Brown</string>
+    <string name="review_name_3">John Oakley</string>
+    <string name="review_name_4">Liza Tate</string>
+    <string name="review_name_5">Sarah Kate</string>
+    <string name="review_total_1">4.2★</string>
+    <string name="review_total_2">3.9★</string>
+    <string name="review_total_3">4.5★</string>
+    <string name="review_total_4">4.9★</string>
+    <string name="review_food_1">4.3★</string>
+    <string name="review_food_2">4.3★</string>
+    <string name="review_food_3">4.3★</string>
+    <string name="review_food_4">4.3★</string>
+    <string name="review_food_5">4.3★</string>
+    <string name="review_price_1">3.9★</string>
+    <string name="review_price_2">2.8★</string>
+    <string name="review_price_3">3.3★</string>
+    <string name="review_price_4">4.1★</string>
+    <string name="review_speed_1">5.0★</string>
+    <string name="review_speed_2">4.2★</string>
+    <string name="review_speed_3">4.9★</string>
+    <string name="review_speed_4">4.5★</string>
+    <string name="review_speed_5">3.9★</string>
+    <string name="review_hygiene_1">4.6★</string>
+    <string name="review_hygiene_2">3.3★</string>
+    <string name="review_hygiene_3">3.9★</string>
+    <string name="review_hygiene_4">4.3★</string>
+    <string name="review_hygiene_5">3.7★</string>
+    <string name="food">Food rating - tap to edit</string>
+    <string name="price">Price rating - tap to edit</string>
+    <string name="speed">Speed rating - tap to edit</string>
+    <string name="hygiene">Hygiene rating - tap to edit</string>
+    <string name="login">User Login</string>
+
+    hygiene: Int
+    <plurals name="nums">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+</resources>
