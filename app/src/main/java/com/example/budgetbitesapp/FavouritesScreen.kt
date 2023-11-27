@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextAlign
@@ -48,12 +49,19 @@ fun BigBiteCard(bite: Bite, navcontroller: NavController){
                 contentDescription = stringResource(bite.stringResourceId),
                 modifier = Modifier
                     .width(190.dp)
-                    .height(190.dp),
+                    .height(190.dp)
+                    .padding(5.dp)
+                    .align(Alignment.CenterHorizontally),
                 contentScale = ContentScale.Crop
             )
             Text(
                 text = stringResource(bite.stringResourceId),
-                modifier = Modifier.padding(16.dp),
+                fontSize = 20.sp,
+                fontFamily= FontFamily.Serif,
+                fontWeight = Bold,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(16.dp),
                 style = MaterialTheme.typography.headlineMedium
             )
         }
@@ -63,9 +71,9 @@ fun BigBiteCard(bite: Bite, navcontroller: NavController){
 @Composable
 fun BiteColumn(modifier: Modifier = Modifier, navcontroller: NavController) {
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .verticalScroll(rememberScrollState()),
+        modifier = modifier.padding(15.dp).verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
             modifier = modifier
@@ -73,7 +81,7 @@ fun BiteColumn(modifier: Modifier = Modifier, navcontroller: NavController) {
             Text(
                 modifier = modifier
                     .padding(10.dp),
-                text = "FAVOURITE BITES",
+                text = "FAVOURITES",
                 fontFamily= FontFamily.Serif,
                 fontWeight = Bold,
                 textAlign = TextAlign.Center,
@@ -99,7 +107,7 @@ fun BiteColumn(modifier: Modifier = Modifier, navcontroller: NavController) {
                 BigBiteCard(Bite(R.string.favourite6, R.drawable.isolabella),navcontroller)
                 BigBiteCard(Bite(R.string.favourite9, R.drawable.cafe49),navcontroller)
                 BigBiteCard(Bite(R.string.favourite4, R.drawable.mastercuisine),navcontroller)
-                BigBiteCard(Bite(R.string.favourite2, R.drawable.costa), navcontroller)
+                BigBiteCard(Bite(R.string.favourite2, R.drawable.pizzaexpress), navcontroller)
                 BigBiteCard(Bite(R.string.favourite5, R.drawable.haretortoise),navcontroller)
             }
         }

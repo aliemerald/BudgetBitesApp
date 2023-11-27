@@ -55,6 +55,7 @@ fun HomeScreen(navcontroller: NavController){
             "New Bites",
             fontWeight=Bold,
             fontSize=20.sp,
+            fontFamily= FontFamily.Serif,
             modifier = Modifier
                 .padding(5.dp)
                 .align(Alignment.Start)
@@ -65,6 +66,7 @@ fun HomeScreen(navcontroller: NavController){
             "Recommended Bites",
             fontWeight=Bold,
             fontSize=20.sp,
+            fontFamily= FontFamily.Serif,
             modifier = Modifier
                 .padding(5.dp)
                 .align(Alignment.Start)
@@ -75,6 +77,7 @@ fun HomeScreen(navcontroller: NavController){
             "Recent Bites",
             fontWeight=Bold,
             fontSize=20.sp,
+            fontFamily= FontFamily.Serif,
             modifier = Modifier
                 .padding(5.dp)
                 .align(Alignment.Start)
@@ -104,9 +107,9 @@ fun SmallBiteCard(bite: Bite, navcontroller: NavController){
                 text=stringResource(bite.stringResourceId),
                 fontSize = 15.sp,
                 fontWeight = Bold,
-                modifier = Modifier.align(Alignment.CenterHorizontally).padding(5.dp),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily.Serif
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(5.dp)
             )
         }
     }
@@ -122,11 +125,11 @@ fun BiteRow(modifier:Modifier=Modifier, navcontroller: NavController) {
         Spacer(modifier = Modifier.height(8.dp))
         Row(modifier = modifier) {
             SmallBiteCard(Bite(R.string.favourite1, R.drawable.starbucks), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite2, R.drawable.starbucks), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite3, R.drawable.starbucks), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite6, R.drawable.starbucks), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite7, R.drawable.starbucks), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite9, R.drawable.starbucks), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite2, R.drawable.pizzaexpress), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite3, R.drawable.choppaluna), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite6, R.drawable.isolabella), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite7, R.drawable.rotiking), navcontroller)
+            SmallBiteCard(Bite(R.string.favourite9, R.drawable.cafe49), navcontroller)
         }
     }
 }
