@@ -1,4 +1,4 @@
-package com.example.budgetbitesapp 
+package com.example.budgetbitesapp
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -43,10 +42,7 @@ import java.math.RoundingMode
 
 
 @Composable
-fun ReviewCardChecker(
-    navcontroller: NavController,
-    onBackButtonClicked: () -> Unit
-) {
+fun ReviewCardChecker(navcontroller: NavController, onBackButtonClicked: () -> Unit) {
     Column {
         IconButton(
             onClick = { onBackButtonClicked.invoke() }
@@ -56,10 +52,7 @@ fun ReviewCardChecker(
                 contentDescription = "Back"
             )
         }
-        ReviewCheckCard(
-            Bite(R.string.favourite1, R.drawable.starbucks),
-            navcontroller = navcontroller
-        )
+        ReviewCheckCard(Bite(R.string.favourite1, R.drawable.starbucks), navcontroller = navcontroller)
     }
 }
 
@@ -202,8 +195,8 @@ fun ReviewCardFill2() {
         val inputAsString2 = FileInputStream(file2).bufferedReader().use{it.readText()}
         val inputAsString3 = FileInputStream(file3).bufferedReader().use{it.readText()}
         val inputAsString4 = FileInputStream(file4).bufferedReader().use{it.readText()}
-        val total = ((inputAsString.toDouble() + inputAsString2.toDouble() + inputAsString3.toDouble() + inputAsString4.toDouble())/4.0)
-        val rounded = BigDecimal(total).setScale(2, RoundingMode.HALF_EVEN)
+        var total = ((inputAsString.toDouble() + inputAsString2.toDouble() + inputAsString3.toDouble() + inputAsString4.toDouble())/4.0)
+        var rounded = BigDecimal(total).setScale(2, RoundingMode.HALF_EVEN)
         Column {
             Text(
                 text = "REVIEW:",
