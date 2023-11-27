@@ -14,11 +14,14 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -43,12 +46,21 @@ import com.example.budgetbites.R
 import com.example.budgetbitesapp.model.Bite
 
 @Composable
-fun RestaurantProfileScreen(navcontroller: NavController) {
+fun RestaurantProfileScreen(
+    navcontroller: NavController,
+    onBackButtonClicked: () -> Unit) {
     Column {
+        IconButton(
+            onClick = {onBackButtonClicked.invoke()}
+        ) {
+            Icon(
+                imageVector = Icons.Default.KeyboardArrowLeft,
+                contentDescription = "Back"
+            )
+        }
         RestaurantCard(Bite(R.string.favourite1, R.drawable.starbucks))
         Cardbehind(navcontroller = navcontroller)
     }
-
 }
 @Composable
 fun RestaurantCard(bite: Bite) {

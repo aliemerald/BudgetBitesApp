@@ -12,25 +12,22 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.dimensionResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.example.budgetbites.R
 
 @Composable
-fun BottomBarNavigation(
+fun BudgetBitesNavigation(
     navController: NavHostController = rememberNavController(),
     padding: PaddingValues,
     context: Activity
 ) {
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
     NavHost(
         navController = navController,
         startDestination = ScreenRoutes.Login.route,
@@ -68,16 +65,21 @@ fun BottomBarNavigation(
             }
         }
         composable(ScreenRoutes.Restaurant.route) {
-            RestaurantProfileScreen(navController)
+            RestaurantProfileScreen(navController) {
+                navController.popBackStack()
+            }
         }
         composable(ScreenRoutes.WriteReview.route) {
-            ReviewWritingScreen(navController)
+            ReviewWritingScreen(navController) {
+                navController.popBackStack()
+            }
         }
         composable(ScreenRoutes.ReviewCheck.route) {
-            ReviewCardChecker(navController)
+            ReviewCardChecker(navController) {
+                navController.popBackStack()
+            }
         }
     }
-
 }
 sealed class ScreenRoutes(val route: String) {
     data object Login : ScreenRoutes("/login")
@@ -93,9 +95,9 @@ enum class BottomBarRoutes(
     val routes: String,
     val icon: ImageVector
 ) {
+    Map(5, R.string.bbs_5, "/map", Icons.Default.LocationOn),
+    Search(4, R.string.bbs_4, "/search", Icons.Default.Search),
     Home(1, R.string.bbs_1, "/home", Icons.Default.Home),
     Favourites(2, R.string.bbs_2, "/notification", Icons.Default.Star),
-    Profile(3, R.string.bbs_3, "/profile", Icons.Default.Person),
-    Search(4, R.string.bbs_4, "/search", Icons.Default.Search),
-    Map(5, R.string.bbs_5, "/map", Icons.Default.LocationOn)
+    Profile(3, R.string.bbs_3, "/profile", Icons.Default.Person)
 }

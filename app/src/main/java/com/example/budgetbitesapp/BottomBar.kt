@@ -24,11 +24,11 @@ fun BottomBarRow(
 ) {
 
     val tabList = listOf(
+        BottomBarRoutes.Map,
+        BottomBarRoutes.Search,
         BottomBarRoutes.Home,
         BottomBarRoutes.Favourites,
         BottomBarRoutes.Profile,
-        BottomBarRoutes.Search,
-        BottomBarRoutes.Map
     )
 
     val navStackBackEntry by navHostController.currentBackStackEntryAsState()
