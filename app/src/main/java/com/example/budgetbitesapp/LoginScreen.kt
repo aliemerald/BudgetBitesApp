@@ -73,6 +73,7 @@ fun LoginScreen(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .width(200.dp)
+                    .height(200.dp)
                     .clip(CircleShape)
             )
             Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
@@ -177,5 +178,4 @@ fun LoginScreen(
             }
         }
     }
-
 }

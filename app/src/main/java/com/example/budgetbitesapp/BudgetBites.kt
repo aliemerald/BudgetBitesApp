@@ -58,7 +58,7 @@ fun BudgetBitesNavigation(
                 UserProfileScreen(navController)
             }
             composable(BottomBarRoutes.Search.routes) {
-                SearchScreen()
+                SearchScreen(modifier = Modifier, navController)
             }
             composable(BottomBarRoutes.Map.routes) {
                 MapScreen()

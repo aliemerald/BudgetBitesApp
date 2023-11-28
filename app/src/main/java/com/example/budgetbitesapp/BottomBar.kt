@@ -22,7 +22,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 fun BottomBarRow(
     navHostController: NavHostController
 ) {
-
     val tabList = listOf(
         BottomBarRoutes.Map,
         BottomBarRoutes.Search,
@@ -30,11 +29,8 @@ fun BottomBarRow(
         BottomBarRoutes.Favourites,
         BottomBarRoutes.Profile,
     )
-
     val navStackBackEntry by navHostController.currentBackStackEntryAsState()
     val currentDestination = navStackBackEntry?.destination
-
-
     Row(
         modifier = Modifier
             .fillMaxWidth(),

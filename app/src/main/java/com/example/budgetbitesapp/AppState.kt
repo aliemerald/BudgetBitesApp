@@ -18,9 +18,7 @@ fun rememberAppState(
 class AppState(
     val navHostController: NavHostController
 ) {
-
     private val routes = BottomBarRoutes.values().map { it.routes }
-
     val shouldShowBottomBar: Boolean
         @Composable get() =
             navHostController.currentBackStackEntryAsState().value?.destination?.route in routes

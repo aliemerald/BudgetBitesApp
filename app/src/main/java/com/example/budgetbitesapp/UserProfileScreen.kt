@@ -32,7 +32,7 @@ import com.example.budgetbitesapp.model.Bite
 
 @Composable
 fun UserProfileScreen(navcontroller: NavController) {
-    Column() {
+    Column{
         UserCard(Bite(R.string.review_name_1, R.drawable.woman1))
         Cardbehind2(navcontroller = navcontroller)
     }
@@ -45,7 +45,10 @@ fun UserCard(bite: Bite) {
             .fillMaxWidth()
             .padding(20.dp)
     ) {
-        Row {
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ){
             Column {
                 Image(
                     painter = painterResource(bite.imageResourceId),
@@ -109,7 +112,10 @@ fun MaryReviewedCard(Bite: Bite, total: Int, food: Int, price: Int, speed: Int, 
         ),
         border = BorderStroke(1.dp, Color.Black),
     ) {
-        Row{
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ){
             Column(modifier = Modifier.width(190.dp)){
                 Image(
                     painter = painterResource(Bite.imageResourceId),
@@ -190,10 +196,10 @@ fun ReviewedList2(modifier: Modifier = Modifier) {
             )
         //horizontalAlignment = Alignment.CenterHorizontally//
     ) {
-        MaryReviewedCard(Bite(R.string.favourite1, R.drawable.starbucks),R.string.review_total_1, R.string.review_food_1, R.string.review_price_1,R.string.review_speed_1, R.string.review_hygiene_1 )
-        MaryReviewedCard(Bite(R.string.favourite3, R.drawable.choppaluna),R.string.review_total_2, R.string.review_food_2, R.string.review_price_1,R.string.review_speed_2,R.string.review_hygiene_1)
-        MaryReviewedCard(Bite(R.string.favourite9, R.drawable.cafe49),R.string.review_total_4, R.string.review_food_4,R.string.review_price_1, R.string.review_speed_3,R.string.review_hygiene_1)
-        MaryReviewedCard(Bite(R.string.favourite7, R.drawable.rotiking),R.string.review_total_4, R.string.review_food_4,R.string.review_price_1, R.string.review_speed_3,R.string.review_hygiene_1)
+        MaryReviewedCard(Bite(R.string.starbucks, R.drawable.starbucks),R.string.review_total_1, R.string.review_food_1, R.string.review_price_1,R.string.review_speed_1, R.string.review_hygiene_1 )
+        MaryReviewedCard(Bite(R.string.choppaluna, R.drawable.choppaluna),R.string.review_total_2, R.string.review_food_2, R.string.review_price_1,R.string.review_speed_2,R.string.review_hygiene_1)
+        MaryReviewedCard(Bite(R.string.cafe49, R.drawable.cafe49),R.string.review_total_4, R.string.review_food_4,R.string.review_price_1, R.string.review_speed_3,R.string.review_hygiene_1)
+        MaryReviewedCard(Bite(R.string.rotiking, R.drawable.rotiking),R.string.review_total_4, R.string.review_food_4,R.string.review_price_1, R.string.review_speed_3,R.string.review_hygiene_1)
     }
 }
 

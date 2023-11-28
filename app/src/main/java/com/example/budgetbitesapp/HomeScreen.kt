@@ -18,14 +18,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalConsumer
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -60,7 +57,7 @@ fun HomeScreen(navcontroller: NavController){
                 .padding(5.dp)
                 .align(Alignment.Start)
         )
-        BiteRow(navcontroller = navcontroller)
+        NewBiteRow(navcontroller = navcontroller)
         Spacer(modifier = Modifier.height(15.dp))
         Text(
             "Recommended Bites",
@@ -71,7 +68,7 @@ fun HomeScreen(navcontroller: NavController){
                 .padding(5.dp)
                 .align(Alignment.Start)
         )
-        BiteRow(navcontroller = navcontroller)
+        RecommendedBiteRow(navcontroller = navcontroller)
         Spacer(modifier = Modifier.height(15.dp))
         Text(
             "Recent Bites",
@@ -82,7 +79,7 @@ fun HomeScreen(navcontroller: NavController){
                 .padding(5.dp)
                 .align(Alignment.Start)
         )
-        BiteRow(navcontroller = navcontroller)
+        RecentBiteRow(navcontroller = navcontroller)
     }
 }
 
@@ -90,15 +87,15 @@ fun HomeScreen(navcontroller: NavController){
 fun SmallBiteCard(bite: Bite, navcontroller: NavController){
     Card(modifier= Modifier
         .clickable { navcontroller.navigate(ScreenRoutes.Restaurant.route) }
-        .width(130.dp)
+        .width(140.dp)
         .padding(5.dp)){
         Column{
             Image(
                 painter=painterResource(bite.imageResourceId),
                 contentDescription=stringResource(bite.stringResourceId),
                 modifier= Modifier
-                    .width(120.dp)
-                    .height(120.dp)
+                    .width(130.dp)
+                    .height(130.dp)
                     .padding(5.dp)
                     .align(Alignment.CenterHorizontally),
                 contentScale= ContentScale.Crop
@@ -109,14 +106,14 @@ fun SmallBiteCard(bite: Bite, navcontroller: NavController){
                 fontWeight = Bold,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .padding(5.dp)
+                    .padding(2.dp)
             )
         }
     }
 }
 
 @Composable
-fun BiteRow(modifier:Modifier=Modifier, navcontroller: NavController) {
+fun NewBiteRow(modifier:Modifier=Modifier, navcontroller: NavController) {
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -124,12 +121,50 @@ fun BiteRow(modifier:Modifier=Modifier, navcontroller: NavController) {
     ) {
         Spacer(modifier = Modifier.height(8.dp))
         Row(modifier = modifier) {
-            SmallBiteCard(Bite(R.string.favourite1, R.drawable.starbucks), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite2, R.drawable.pizzaexpress), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite3, R.drawable.choppaluna), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite6, R.drawable.isolabella), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite7, R.drawable.rotiking), navcontroller)
-            SmallBiteCard(Bite(R.string.favourite9, R.drawable.cafe49), navcontroller)
+            SmallBiteCard(Bite(R.string.starbucks, R.drawable.starbucks), navcontroller)
+            SmallBiteCard(Bite(R.string.pizzaexpress, R.drawable.pizzaexpress), navcontroller)
+            SmallBiteCard(Bite(R.string.choppaluna, R.drawable.choppaluna), navcontroller)
+            SmallBiteCard(Bite(R.string.isolabella, R.drawable.isolabella), navcontroller)
+            SmallBiteCard(Bite(R.string.rotiking, R.drawable.rotiking), navcontroller)
+            SmallBiteCard(Bite(R.string.cafe49, R.drawable.cafe49), navcontroller)
+        }
+    }
+}
+
+@Composable
+fun RecommendedBiteRow(modifier:Modifier=Modifier, navcontroller: NavController) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState())
+    ) {
+        Spacer(modifier = Modifier.height(8.dp))
+        Row(modifier = modifier) {
+            SmallBiteCard(Bite(R.string.wingwing, R.drawable.wingwing), navcontroller)
+            SmallBiteCard(Bite(R.string.haretortoise, R.drawable.haretortoise), navcontroller)
+            SmallBiteCard(Bite(R.string.pizzaexpress, R.drawable.pizzaexpress), navcontroller)
+            SmallBiteCard(Bite(R.string.rotiking, R.drawable.rotiking), navcontroller)
+            SmallBiteCard(Bite(R.string.choppaluna, R.drawable.choppaluna), navcontroller)
+            SmallBiteCard(Bite(R.string.cafe49, R.drawable.cafe49), navcontroller)
+        }
+    }
+}
+
+@Composable
+fun RecentBiteRow(modifier:Modifier=Modifier, navcontroller: NavController) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState())
+    ) {
+        Spacer(modifier = Modifier.height(8.dp))
+        Row(modifier = modifier) {
+            SmallBiteCard(Bite(R.string.rotiking, R.drawable.rotiking), navcontroller)
+            SmallBiteCard(Bite(R.string.isolabella, R.drawable.isolabella), navcontroller)
+            SmallBiteCard(Bite(R.string.starbucks, R.drawable.starbucks), navcontroller)
+            SmallBiteCard(Bite(R.string.wingwing, R.drawable.wingwing), navcontroller)
+            SmallBiteCard(Bite(R.string.haretortoise, R.drawable.haretortoise), navcontroller)
+            SmallBiteCard(Bite(R.string.pizzaexpress, R.drawable.pizzaexpress), navcontroller)
         }
     }
 }

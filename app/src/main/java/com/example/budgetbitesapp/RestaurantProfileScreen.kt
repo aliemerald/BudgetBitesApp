@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,7 +15,6 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
@@ -58,7 +58,7 @@ fun RestaurantProfileScreen(
                 contentDescription = "Back"
             )
         }
-        RestaurantCard(Bite(R.string.favourite1, R.drawable.starbucks))
+        RestaurantCard(Bite(R.string.starbucks, R.drawable.starbucks))
         Cardbehind(navcontroller = navcontroller)
     }
 }
@@ -69,82 +69,61 @@ fun RestaurantCard(bite: Bite) {
             .fillMaxWidth()
             .padding(15.dp)
     ) {
-        Row {
-            Column(
-                modifier = Modifier.width(200.dp)
-            ) {
-                Image(
-                    painter = painterResource(bite.imageResourceId),
-                    contentDescription = stringResource(bite.stringResourceId),
-                    modifier = Modifier
-                        .width(200.dp)
-                        .height(200.dp)
-                        .padding(5.dp),
-                    contentScale = ContentScale.Crop
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
+            Image(
+                painter = painterResource(bite.imageResourceId),
+                contentDescription = stringResource(bite.stringResourceId),
+                modifier = Modifier
+                    .width(190.dp)
+                    .height(190.dp)
+                    .padding(5.dp),
+                contentScale = ContentScale.Crop
+            )
+            Column {
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    text = stringResource(bite.stringResourceId),
+                    modifier = Modifier.padding(1.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = FontFamily.Serif,
+                )
+                Text(
+                    text = "4.3 ★ ",
+                    modifier = Modifier.padding(1.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontSize = 20.sp,
+                )
+                Text(
+                    text = "Coffee Shop",
+                    modifier = Modifier.padding(1.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontSize = 18.sp,
+                )
+                Text(
+                    text = "Lynton House",
+                    modifier = Modifier.padding(1.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = "Tavistock Square",
+                    modifier = Modifier.padding(1.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = "London WC1H 9LT",
+                    modifier = Modifier.padding(1.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontSize = 18.sp
                 )
             }
-            Column {
-                Row (
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
-                ){
-                    Column{
-                        Text(
-                            text = "",
-                            modifier = Modifier.padding(1.dp),
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontSize = 6.sp,
-                            fontWeight = FontWeight.Bold,
-                            fontFamily = FontFamily.Serif,
-                        )
-                        Text(
-                            text = stringResource(bite.stringResourceId),
-                            modifier = Modifier.padding(1.dp),
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontSize = 22.sp,
-                            fontWeight = FontWeight.Bold,
-                            fontFamily = FontFamily.Serif,
-                        )
-                    }
-                    Column {
-                        SwitchFavourite()
-                    }
-                }
-                Row {
-                    Column {
-                        Text(
-                            text = "4.3 ★ ",
-                            modifier = Modifier.padding(1.dp),
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontSize = 20.sp,
-                        )
-                        Text(
-                            text = "Coffee Shop",
-                            modifier = Modifier.padding(1.dp),
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontSize = 18.sp,
-                        )
-                        Text(
-                            text = "Lynton House",
-                            modifier = Modifier.padding(1.dp),
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontSize = 18.sp
-                        )
-                        Text(
-                            text = "Tavistock Square",
-                            modifier = Modifier.padding(1.dp),
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontSize = 18.sp
-                        )
-                        Text(
-                            text = "London WC1H 9LT",
-                            modifier = Modifier.padding(1.dp),
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontSize = 18.sp
-                        )
-                    }
-                }
-            }
-
+            SwitchFavourite()
         }
     }
 }
@@ -156,8 +135,8 @@ fun AddReviewButton(
 ){
     Button(
         onClick = onClick,
-        modifier = modifier.widthIn(min = 80.dp)
-
+        modifier = modifier
+            .widthIn(min = 80.dp)
     ){
         Text("+")
     }
@@ -173,7 +152,10 @@ fun ReviewedCard(bite: Bite, total: Int, food: Int, price: Int, speed: Int, hygi
         ),
         border = BorderStroke(1.dp, Color.Black),
     ) {
-        Row{
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ){
             Column(modifier = Modifier.width(190.dp)){
                 Image(
                     painter = painterResource(bite.imageResourceId),
@@ -192,7 +174,6 @@ fun ReviewedCard(bite: Bite, total: Int, food: Int, price: Int, speed: Int, hygi
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Serif,
                 )
-
             }
             Column{
                 Text(
@@ -252,7 +233,6 @@ fun ReviewedList(modifier: Modifier = Modifier) {
             .verticalScroll(
                 rememberScrollState() ,
             )
-        //horizontalAlignment = Alignment.CenterHorizontally//
     ) {
         ReviewedCard(Bite(R.string.review_name_1, R.drawable.woman1),R.string.review_total_1, R.string.review_food_1, R.string.review_price_1,R.string.review_speed_1, R.string.review_hygiene_1 )
         ReviewedCard(Bite(R.string.review_name_2, R.drawable.man1),R.string.review_total_2, R.string.review_food_2, R.string.review_price_1,R.string.review_speed_2,R.string.review_hygiene_1)
@@ -275,7 +255,7 @@ fun Cardbehind(modifier: Modifier = Modifier, navcontroller: NavController){
             Row(modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(140.dp)
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column{
                     Text(
@@ -300,13 +280,14 @@ fun Cardbehind(modifier: Modifier = Modifier, navcontroller: NavController){
 
 @Composable
 fun SwitchFavourite() {
-    var checked by remember { mutableStateOf(false) }
-
+    var checked by remember { mutableStateOf(false)
+    }
     Switch(
         checked = checked,
         onCheckedChange = {
             checked = it
         },
+        modifier = Modifier.padding(10.dp),
         thumbContent = if (checked) {
             {
                 Icon(

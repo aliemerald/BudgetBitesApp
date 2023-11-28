@@ -25,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -38,9 +37,7 @@ fun FavouritesScreen(navcontroller: NavController) {
 @Composable
 fun BigBiteCard(bite: Bite, navcontroller: NavController){
     Card(modifier = Modifier
-        .clickable {
-            navcontroller.navigate(ScreenRoutes.Restaurant.route)
-        }
+        .clickable {navcontroller.navigate(ScreenRoutes.Restaurant.route)}
         .width(200.dp)
         .padding(5.dp)) {
         Column {
@@ -71,7 +68,10 @@ fun BigBiteCard(bite: Bite, navcontroller: NavController){
 @Composable
 fun BiteColumn(modifier: Modifier = Modifier, navcontroller: NavController) {
     Column(
-        modifier = modifier.padding(15.dp).verticalScroll(rememberScrollState()),
+        modifier = modifier
+            .padding(15.dp)
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -95,20 +95,20 @@ fun BiteColumn(modifier: Modifier = Modifier, navcontroller: NavController) {
         )
         {
             Column(modifier = modifier) {
-                BigBiteCard(Bite(R.string.favourite1, R.drawable.starbucks),navcontroller)
-                BigBiteCard(Bite(R.string.favourite7, R.drawable.rotiking),navcontroller)
-                BigBiteCard(Bite(R.string.favourite10, R.drawable.wingwing),navcontroller)
-                BigBiteCard(Bite(R.string.favourite3, R.drawable.choppaluna),navcontroller)
-                BigBiteCard(Bite(R.string.favourite8, R.drawable.kingfalafel),navcontroller)
+                BigBiteCard(Bite(R.string.starbucks, R.drawable.starbucks),navcontroller)
+                BigBiteCard(Bite(R.string.rotiking, R.drawable.rotiking),navcontroller)
+                BigBiteCard(Bite(R.string.wingwing, R.drawable.wingwing),navcontroller)
+                BigBiteCard(Bite(R.string.choppaluna, R.drawable.choppaluna),navcontroller)
+                BigBiteCard(Bite(R.string.kingfalafel, R.drawable.kingfalafel),navcontroller)
 
             }
             Column(modifier = modifier) {
 
-                BigBiteCard(Bite(R.string.favourite6, R.drawable.isolabella),navcontroller)
-                BigBiteCard(Bite(R.string.favourite9, R.drawable.cafe49),navcontroller)
-                BigBiteCard(Bite(R.string.favourite4, R.drawable.mastercuisine),navcontroller)
-                BigBiteCard(Bite(R.string.favourite2, R.drawable.pizzaexpress), navcontroller)
-                BigBiteCard(Bite(R.string.favourite5, R.drawable.haretortoise),navcontroller)
+                BigBiteCard(Bite(R.string.isolabella, R.drawable.isolabella),navcontroller)
+                BigBiteCard(Bite(R.string.cafe49, R.drawable.cafe49),navcontroller)
+                BigBiteCard(Bite(R.string.mastercuisine, R.drawable.mastercuisine),navcontroller)
+                BigBiteCard(Bite(R.string.pizzaexpress, R.drawable.pizzaexpress), navcontroller)
+                BigBiteCard(Bite(R.string.haretortoise, R.drawable.haretortoise),navcontroller)
             }
         }
     }
