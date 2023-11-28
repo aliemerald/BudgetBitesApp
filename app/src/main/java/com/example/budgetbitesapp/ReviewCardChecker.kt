@@ -52,7 +52,7 @@ fun ReviewCardChecker(navcontroller: NavController, onBackButtonClicked: () -> U
                 contentDescription = "Back"
             )
         }
-        ReviewCheckCard(Bite(R.string.favourite1, R.drawable.starbucks), navcontroller = navcontroller)
+        ReviewCheckCard(Bite(R.string.starbucks, R.drawable.starbucks), navcontroller = navcontroller)
     }
 }
 
