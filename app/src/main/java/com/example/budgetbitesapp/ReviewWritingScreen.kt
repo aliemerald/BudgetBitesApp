@@ -61,7 +61,7 @@ fun ReviewWritingScreen(
                 contentDescription = "Back"
             )
         }
-        RestaurantCard2(Bite(R.string.favourite1, R.drawable.starbucks), navcontroller = navcontroller)
+        RestaurantCard2(Bite(R.string.starbucks, R.drawable.starbucks), navcontroller = navcontroller)
     }
 }
 
